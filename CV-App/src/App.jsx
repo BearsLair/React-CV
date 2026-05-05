@@ -6,7 +6,9 @@ function App() {
   return (
     <>
       <General />
+      <hr />
       <Education />
+      <hr />
       <Experience />
     </>
   );
