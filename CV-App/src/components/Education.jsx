@@ -1,6 +1,6 @@
 function Education() {
   return (
-    <>
+    <div className="education-div">
       <h1>Education</h1>
       <form>
         <p>School Name</p>
@@ -12,7 +12,7 @@ function Education() {
         <p>End Date</p>
         <input type="date" id="end-date" />
       </form>
-    </>
+    </div>
   );
 }
 
