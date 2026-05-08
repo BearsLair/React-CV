@@ -3,14 +3,23 @@ function Education() {
     <div className="education-div">
       <h1>Education</h1>
       <form>
-        <p>School Name</p>
+        {/* TODO: className and htmlFor on p and h1 tags */}
+        <p className="item-label" htmlFor="school-name">
+          School Name
+        </p>
         <input type="text" placeholder="School Name" id="school-name" />
-        <p>Degree</p>
+        <p className="item-label" htmlFor="degree">
+          Degree
+        </p>
         <input type="text" placeholder="Degree" id="degree" />
-        <p>Start Date</p>
-        <input type="date" id="start-date" />
-        <p>End Date</p>
-        <input type="date" id="end-date" />
+        <p className="item-label" htmlFor="edu-start-date">
+          Start Date
+        </p>
+        <input className="date-input" type="date" id="edu-start-date" />
+        <p className="item-label" htmlFor="edu-end-date">
+          End Date
+        </p>
+        <input className="date-input" type="date" id="edu-end-date" />
       </form>
     </div>
   );

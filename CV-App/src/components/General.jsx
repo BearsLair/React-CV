@@ -2,12 +2,8 @@ function General() {
   return (
     <div className="general-div">
       <h1>General</h1>
-      <form
-        className="first-last-name-div"
-        labelFor="first-name"
-        placeHolder="First Name"
-      >
-        <p className="first-name" labelFor="first-name">
+      <form className="first-last-name-div">
+        <p className="item-label" htmlFor="first-name">
           First Name
         </p>
         <input
@@ -16,7 +12,7 @@ function General() {
           id="first-name"
           placeHolder="First Name"
         ></input>
-        <p className="last-name" labelFor="last-name">
+        <p className="item-label" htmlFor="last-name">
           Last Name
         </p>
         <input
@@ -25,7 +21,7 @@ function General() {
           id="last-name"
           placeHolder="Last Name"
         ></input>
-        <p className="email" labelFor="email">
+        <p className="item-label" htmlFor="email">
           Email
         </p>
         <input
@@ -34,7 +30,7 @@ function General() {
           id="email"
           placeHolder="Email"
         ></input>
-        <p className="phone" labelFor="phone">
+        <p className="item-label" htmlFor="phone">
           Phone
         </p>
         <input
