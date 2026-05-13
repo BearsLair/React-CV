@@ -1,4 +1,19 @@
-function General() {
+function General({ submitGeneral }) {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="general-div">
       <h1>General</h1>
@@ -9,7 +24,9 @@ function General() {
         <input
           type="text"
           className="first-name-input"
-          id="first-name"
+          onChange={handleChange}
+          name="firstName"
+          value={formData.firstName}
           placeHolder="First Name"
         ></input>
         <p className="item-label" htmlFor="last-name">
@@ -18,7 +35,9 @@ function General() {
         <input
           type="text"
           className="last-name-input"
-          id="last-name"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleChange}
           placeHolder="Last Name"
         ></input>
         <p className="item-label" htmlFor="email">
@@ -27,7 +46,9 @@ function General() {
         <input
           type="email"
           className="email-input"
-          id="email"
+          onChange={handleChange}
+          name="email"
+          value={formData.email}
           placeHolder="Email"
         ></input>
         <p className="item-label" htmlFor="phone">
@@ -36,9 +57,21 @@ function General() {
         <input
           type="tel"
           className="phone-input"
-          id="phone"
+          onChange={handleChange}
+          name="phone"
+          value={formData.phone}
           placeHolder="Phone"
         ></input>
+        <div className="btn-div">
+          <button
+            className="doc-btn"
+            type="submit"
+            onClick={() => submitFormData()}
+          >
+            Submit
+          </button>
+          <button className="doc-btn">Edit</button>
+        </div>
       </form>
     </div>
   );
