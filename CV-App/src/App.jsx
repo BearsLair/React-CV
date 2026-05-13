@@ -18,7 +18,7 @@ function App() {
       <hr />
       <hr />
       <hr />
-      <GeneralDisplay />
+      <GeneralDisplay data={generalInfo} />
     </>
   );
 }
