@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function General({ submitGeneral }) {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -6,6 +8,7 @@ function General({ submitGeneral }) {
     phone: "",
   });
 
+  // Copies previous state (added to queue before rerender) and changes only the value that is updated.
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -14,10 +17,16 @@ function General({ submitGeneral }) {
     }));
   };
 
+  const submitFormData = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    submitGeneral(formData);
+  };
+
   return (
     <div className="general-div">
       <h1>General</h1>
-      <form className="first-last-name-div">
+      <form className="first-last-name-div" onSubmit={submitFormData}>
         <p className="item-label" htmlFor="first-name">
           First Name
         </p>
@@ -27,7 +36,7 @@ function General({ submitGeneral }) {
           onChange={handleChange}
           name="firstName"
           value={formData.firstName}
-          placeHolder="First Name"
+          placeholder="First Name"
         ></input>
         <p className="item-label" htmlFor="last-name">
           Last Name
@@ -38,7 +47,7 @@ function General({ submitGeneral }) {
           name="lastName"
           value={formData.lastName}
           onChange={handleChange}
-          placeHolder="Last Name"
+          placeholder="Last Name"
         ></input>
         <p className="item-label" htmlFor="email">
           Email
@@ -49,7 +58,7 @@ function General({ submitGeneral }) {
           onChange={handleChange}
           name="email"
           value={formData.email}
-          placeHolder="Email"
+          placeholder="Email"
         ></input>
         <p className="item-label" htmlFor="phone">
           Phone
@@ -60,17 +69,15 @@ function General({ submitGeneral }) {
           onChange={handleChange}
           name="phone"
           value={formData.phone}
-          placeHolder="Phone"
+          placeholder="Phone"
         ></input>
         <div className="btn-div">
-          <button
-            className="doc-btn"
-            type="submit"
-            onClick={() => submitFormData()}
-          >
+          <button className="doc-btn" type="submit">
             Submit
           </button>
-          <button className="doc-btn">Edit</button>
+          <button className="doc-btn" type="button">
+            Edit
+          </button>
         </div>
       </form>
     </div>
