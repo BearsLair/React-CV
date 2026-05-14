@@ -19,7 +19,6 @@ function General({ submitGeneral }) {
 
   const submitFormData = (e) => {
     e.preventDefault();
-    console.log(formData);
     submitGeneral(formData);
   };
 
