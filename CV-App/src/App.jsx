@@ -7,12 +7,14 @@ import "./styles/App.css";
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState({});
+  // change to array
+  const [eduInfo, setEduInfo] = useState({});
 
   return (
     <>
       <General submitGeneral={setGeneralInfo} />
       <hr />
-      <Education />
+      <Education submitEducation={setEduInfo} />
       <hr />
       <Experience />
       <hr />
