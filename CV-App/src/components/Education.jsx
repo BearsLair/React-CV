@@ -1,25 +1,75 @@
-function Education() {
+import { useState } from "react";
+
+function Education({ submitEducation }) {
+  const [formData, setFormData] = useState({
+    schoolName: "",
+    degree: "",
+    eduStartDate: "",
+    eduEndDate: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Change to manipulating an array, not an object.
+  const submitFormData = (e) => {
+    e.preventDefault();
+    // let submitData = {...formData, [eduStartDate]:}
+    submitEducation(formData);
+  };
+
   return (
     <div className="education-div">
       <h1>Education</h1>
-      <form>
-        {/* TODO: className and htmlFor on p and h1 tags */}
-        <p className="item-label" htmlFor="school-name">
+      <form onSubmit={submitFormData}>
+        <p className="item-label" htmlFor="schoolName">
           School Name
         </p>
-        <input type="text" placeholder="School Name" id="school-name" />
+        <input
+          type="text"
+          onChange={handleChange}
+          value={formData.schoolName}
+          placeholder="School Name"
+          name="schoolName"
+        />
         <p className="item-label" htmlFor="degree">
           Degree
         </p>
-        <input type="text" placeholder="Degree" id="degree" />
-        <p className="item-label" htmlFor="edu-start-date">
+        <input
+          type="text"
+          onChange={handleChange}
+          value={formData.degree}
+          placeholder="Degree"
+          name="degree"
+        />
+        <p className="item-label" htmlFor="eduStartDate">
           Start Date
         </p>
-        <input className="date-input" type="date" id="edu-start-date" />
-        <p className="item-label" htmlFor="edu-end-date">
+        <input
+          className="date-input"
+          onChange={handleChange}
+          value={formData.eduStartDate}
+          type="date"
+          name="eduStartDate"
+        />
+        <p className="item-label" htmlFor="eduEndDate">
           End Date
         </p>
-        <input className="date-input" type="date" id="edu-end-date" />
+        <input
+          className="date-input"
+          onChange={handleChange}
+          value={formData.eduEndDate}
+          type="date"
+          name="eduEndDate"
+        />
+        <button type="submit" className="doc-btn">
+          Add School
+        </button>
       </form>
     </div>
   );
