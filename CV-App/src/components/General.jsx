@@ -73,10 +73,7 @@ function General({ submitGeneral }) {
         ></input>
         <div className="btn-div">
           <button className="doc-btn" type="submit">
-            Submit
-          </button>
-          <button className="doc-btn" type="button">
-            Edit
+            Save/Edit
           </button>
         </div>
       </form>
