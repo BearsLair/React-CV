@@ -2,13 +2,13 @@ import { useState } from "react";
 import General from "./components/General.jsx";
 import Education from "./components/Education.jsx";
 import Experience from "./components/Experience.jsx";
-import GeneralDisplay from "./components/GeneralDisplay.jsx";
+import CV_Display from "./components/CV_Display.jsx";
 import "./styles/App.css";
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState({});
-  // change to array
   const [eduInfo, setEduInfo] = useState([]);
+  const [expInfo, setExpInfo] = useState([]);
 
   return (
     <>
@@ -16,11 +16,15 @@ function App() {
       <hr />
       <Education submitEducation={setEduInfo} />
       <hr />
-      <Experience />
+      <Experience submitExperience={setExpInfo} />
       <hr />
       <hr />
       <hr />
-      <GeneralDisplay data={generalInfo} />
+      <CV_Display
+        generalData={generalInfo}
+        eduData={eduInfo}
+        expData={expInfo}
+      />
     </>
   );
 }
