@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DropdownMenu from "./DropdownMenu";
 
 function Experience({ expCopy, submitExperience }) {
   const [formData, setFormData] = useState({
@@ -70,6 +71,7 @@ function Experience({ expCopy, submitExperience }) {
           name="expEndDate"
         />
         <button type="submit">Add Experience</button>
+        <DropdownMenu />
       </form>
     </div>
   );

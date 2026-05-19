@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DropdownMenu from "./DropdownMenu";
 
 function Education({ eduCopy, submitEducation }) {
   const [formData, setFormData] = useState({
@@ -72,6 +73,7 @@ function Education({ eduCopy, submitEducation }) {
         <button type="submit" className="doc-btn">
           Add School
         </button>
+        <DropdownMenu />
       </form>
     </div>
   );
