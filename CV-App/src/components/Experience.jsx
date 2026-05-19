@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Experience({ submitExperience }) {
+function Experience({ expCopy, submitExperience }) {
   const [formData, setFormData] = useState({
     companyName: "",
     posTitle: "",
@@ -18,7 +18,9 @@ function Experience({ submitExperience }) {
 
   const submitFormData = (e) => {
     e.preventDefault();
-    submitExperience(formData);
+    let arrayCopy = [...expCopy];
+    arrayCopy.push(formData);
+    submitExperience(arrayCopy);
   };
 
   return (

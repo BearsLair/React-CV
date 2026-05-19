@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Education({ submitEducation }) {
+function Education({ eduCopy, submitEducation }) {
   const [formData, setFormData] = useState({
     schoolName: "",
     degree: "",
@@ -19,8 +19,10 @@ function Education({ submitEducation }) {
   // Change to manipulating an array, not an object.
   const submitFormData = (e) => {
     e.preventDefault();
+    let arrayCopy = [...eduCopy];
+    arrayCopy.push(formData);
     // let submitData = {...formData, [eduStartDate]:}
-    submitEducation(formData);
+    submitEducation(arrayCopy);
   };
 
   return (

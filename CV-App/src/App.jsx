@@ -7,24 +7,24 @@ import "./styles/App.css";
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState({});
-  const [eduInfo, setEduInfo] = useState({});
-  const [expInfo, setExpInfo] = useState({});
+  const [eduInfo, setEduInfo] = useState([]);
+  const [expInfo, setExpInfo] = useState([]);
 
   return (
     <>
       <General submitGeneral={setGeneralInfo} />
       <hr />
-      <Education submitEducation={setEduInfo} />
+      <Education eduCopy={eduInfo} submitEducation={setEduInfo} />
       <hr />
-      <Experience submitExperience={setExpInfo} />
+      <Experience expCopy={expInfo} submitExperience={setExpInfo} />
       <hr />
       <hr />
       <hr />
-      <CV_Display
+      {/* <CV_Display
         generalData={generalInfo}
         eduData={eduInfo}
         expData={expInfo}
-      />
+      /> */}
     </>
   );
 }
