@@ -7,8 +7,8 @@ import "./styles/App.css";
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState({});
-  const [eduInfo, setEduInfo] = useState([]);
-  const [expInfo, setExpInfo] = useState([]);
+  const [eduInfo, setEduInfo] = useState({});
+  const [expInfo, setExpInfo] = useState({});
 
   return (
     <>
