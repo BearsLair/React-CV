@@ -21,12 +21,6 @@ function Education({ submitEducation }) {
     e.preventDefault();
     // let submitData = {...formData, [eduStartDate]:}
     submitEducation(formData);
-    setFormData({
-      schoolName: "",
-      degree: "",
-      eduStartDate: "",
-      eduEndDate: "",
-    });
   };
 
   return (
