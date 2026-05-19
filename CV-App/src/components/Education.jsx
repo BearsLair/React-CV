@@ -1,8 +1,9 @@
 import { useState } from "react";
-import DropdownMenu from "./DropdownMenu";
+// import DropdownMenu from "./DropdownMenu";
 
 function Education({ eduCopy, submitEducation }) {
   const [formData, setFormData] = useState({
+    id: 0,
     schoolName: "",
     degree: "",
     eduStartDate: "",
@@ -17,12 +18,14 @@ function Education({ eduCopy, submitEducation }) {
     }));
   };
 
-  // Change to manipulating an array, not an object.
+  // TODO: Generate keys based on index position
   const submitFormData = (e) => {
     e.preventDefault();
     let arrayCopy = [...eduCopy];
     arrayCopy.push(formData);
-    // let submitData = {...formData, [eduStartDate]:}
+    for (let i = 0; i < arrayCopy.length; i++) {
+      arrayCopy[i].id = i;
+    }
     submitEducation(arrayCopy);
   };
 
@@ -73,7 +76,7 @@ function Education({ eduCopy, submitEducation }) {
         <button type="submit" className="doc-btn">
           Add School
         </button>
-        <DropdownMenu />
+        {/* <DropdownMenu /> */}
       </form>
     </div>
   );

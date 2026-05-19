@@ -1,10 +1,12 @@
 import { useState } from "react";
-import DropdownMenu from "./DropdownMenu";
+// import DropdownMenu from "./DropdownMenu";
 
 function Experience({ expCopy, submitExperience }) {
   const [formData, setFormData] = useState({
+    id: 0,
     companyName: "",
     posTitle: "",
+    responsibilities: "",
     expStartDate: "",
     expEndDate: "",
   });
@@ -17,10 +19,14 @@ function Experience({ expCopy, submitExperience }) {
     }));
   };
 
+  // TODO: Generate keys based on index position
   const submitFormData = (e) => {
     e.preventDefault();
     let arrayCopy = [...expCopy];
     arrayCopy.push(formData);
+    for (let i = 0; i < arrayCopy.length; i++) {
+      arrayCopy[i].id = i;
+    }
     submitExperience(arrayCopy);
   };
 
@@ -49,7 +55,12 @@ function Experience({ expCopy, submitExperience }) {
           name="posTitle"
         />
         <p className="item-label">Main Responsiblities</p>
-        <textarea className="main-resp-input" id="main-resp" />
+        <textarea
+          className="main-resp-input"
+          id="main-resp"
+          name="responsibilities"
+          onChange={handleChange}
+        />
         <p className="item-label" htmlFor="exp-start-date">
           Start Date:
         </p>
@@ -71,7 +82,7 @@ function Experience({ expCopy, submitExperience }) {
           name="expEndDate"
         />
         <button type="submit">Add Experience</button>
-        <DropdownMenu />
+        {/* <DropdownMenu /> */}
       </form>
     </div>
   );
