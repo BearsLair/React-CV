@@ -1,0 +1,110 @@
+/* Basic Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container to hold everything */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* The Button Styling */
+.dropdown-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.dropdown-btn:hover {
+  background-color: #f9f9f9;
+  transform: translateY(-1px);
+}
+
+.btn-text {
+  white-space: nowrap;
+}
+
+.arrow-icon {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+/* Rotate arrow when active */
+.dropdown-btn.active .arrow-icon {
+  transform: rotate(180deg);
+}
+
+/* The Dropdown Content */
+.dropdown-content {
+  position: absolute;
+  top: 100%; /* Directly below the button */
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-top: none; /* Remove gap between button and content */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 5px 5px;
+  z-index: 1000;
+
+  /* Animation */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Show state */
+.dropdown-content.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* List Styling */
+.dropdown-content ul {
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  width: 100%;
+}
+
+.dropdown-content ul li {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-content ul li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content ul li a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.dropdown-content ul li a:hover {
+  background-color: #f0f7ff;
+  color: #007bff;
+  padding-left: 25px; /* Slight slide effect */
+}
