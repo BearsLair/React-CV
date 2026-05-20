@@ -13,26 +13,34 @@ function CV_Display({ generalData, eduData, expData }) {
         <p>General Information will be displayed here</p>
       )}
       <h2>Education</h2>
-      {eduData.schoolName ? (
-        <div className="edu-info">
-          <p>{eduData.schoolName}</p>
-          <p>Degree: {eduData.degree}</p>
-          <p>
-            Start: {eduData.eduStartDate} End: {eduData.eduEndDate}
-          </p>
-        </div>
+      {eduData.length > 0 ? (
+        eduData.map((item) => {
+          return (
+            <div className="edu-info">
+              <p>{item.schoolName}</p>
+              <p>Degree: {item.degree}</p>
+              <p>
+                Start: {item.eduStartDate} End: {item.eduEndDate}
+              </p>
+            </div>
+          );
+        })
       ) : (
         <p>Education will be displayed here</p>
       )}
       <h2>Experience</h2>
-      {expData.companyName ? (
-        <div className="exp-info">
-          <p>{expData.companyName}</p>
-          <p>Position: {expData.posTitle}</p>
-          <p>
-            Start: {expData.expStartDate} End: {expData.expEndDate}
-          </p>
-        </div>
+      {expData.length > 0 ? (
+        expData.map((item) => {
+          return (
+            <div className="exp-info">
+              <p>{item.companyName}</p>
+              <p>Position: {item.posTitle}</p>
+              <p>
+                Start: {item.expStartDate} End: {item.expEndDate}
+              </p>
+            </div>
+          );
+        })
       ) : (
         <p>Experience will be displayed here</p>
       )}
