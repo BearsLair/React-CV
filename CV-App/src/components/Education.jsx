@@ -21,12 +21,23 @@ function Education({ eduCopy, submitEducation }) {
   // TODO: Generate keys based on index position
   const submitFormData = (e) => {
     e.preventDefault();
+
     let arrayCopy = [...eduCopy];
     arrayCopy.push(formData);
+
     for (let i = 0; i < arrayCopy.length; i++) {
       arrayCopy[i].id = i;
     }
+
     submitEducation(arrayCopy);
+
+    setFormData({
+      id: 0,
+      schoolName: "",
+      degree: "",
+      eduStartDate: "",
+      eduEndDate: "",
+    });
   };
 
   return (

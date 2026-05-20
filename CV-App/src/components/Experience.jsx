@@ -19,15 +19,26 @@ function Experience({ expCopy, submitExperience }) {
     }));
   };
 
-  // TODO: Generate keys based on index position
   const submitFormData = (e) => {
     e.preventDefault();
+
     let arrayCopy = [...expCopy];
     arrayCopy.push(formData);
+
     for (let i = 0; i < arrayCopy.length; i++) {
       arrayCopy[i].id = i;
     }
+
     submitExperience(arrayCopy);
+
+    setFormData({
+      id: 0,
+      companyName: "",
+      posTitle: "",
+      responsibilities: "",
+      expStartDate: "",
+      expEndDate: "",
+    });
   };
 
   return (
