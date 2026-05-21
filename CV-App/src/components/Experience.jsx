@@ -11,6 +11,8 @@ function Experience({ expCopy, submitExperience }) {
     expEndDate: "",
   });
 
+  const [editMode, setEditMode] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -22,15 +24,24 @@ function Experience({ expCopy, submitExperience }) {
   const submitFormData = (e) => {
     e.preventDefault();
 
-    let arrayCopy = [...expCopy];
-    arrayCopy.push(formData);
+    if (editMode === true) {
+      let index = formData.id;
+      let arrayCopy = [...expCopy];
 
-    for (let i = 0; i < arrayCopy.length; i++) {
-      arrayCopy[i].id = i;
+      arrayCopy[index] = formData;
+
+      submitExperience(arrayCopy);
+      setEditMode(false);
+    } else {
+      let arrayCopy = [...expCopy];
+      arrayCopy.push(formData);
+
+      for (let i = 0; i < arrayCopy.length; i++) {
+        arrayCopy[i].id = i;
+      }
+
+      submitExperience(arrayCopy);
     }
-
-    submitExperience(arrayCopy);
-
     setFormData({
       id: 0,
       companyName: "",
@@ -92,9 +103,16 @@ function Experience({ expCopy, submitExperience }) {
           type="date"
           name="expEndDate"
         />
-        <button type="submit">Add Experience</button>
+        <button type="submit">
+          {!editMode ? "Add School" : "Submit Changes"}
+        </button>
       </form>
-      <DropdownMenu itemArray={expCopy} type={"exp"} />
+      <DropdownMenu
+        itemArray={expCopy}
+        setItemInfo={setFormData}
+        editMode={setEditMode}
+        type={"exp"}
+      />
     </div>
   );
 }

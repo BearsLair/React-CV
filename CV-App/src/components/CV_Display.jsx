@@ -16,7 +16,7 @@ function CV_Display({ generalData, eduData, expData }) {
       {eduData.length > 0 ? (
         eduData.map((item) => {
           return (
-            <div className="edu-info">
+            <div className="edu-info" key={item.id}>
               <p>{item.schoolName}</p>
               <p>Degree: {item.degree}</p>
               <p>

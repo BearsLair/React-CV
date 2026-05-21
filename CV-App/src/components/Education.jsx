@@ -10,6 +10,8 @@ function Education({ eduCopy, submitEducation }) {
     eduEndDate: "",
   });
 
+  const [editMode, setEditMode] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -21,14 +23,24 @@ function Education({ eduCopy, submitEducation }) {
   const submitFormData = (e) => {
     e.preventDefault();
 
-    let arrayCopy = [...eduCopy];
-    arrayCopy.push(formData);
+    if (editMode === true) {
+      let index = formData.id;
+      let arrayCopy = [...eduCopy];
 
-    for (let i = 0; i < arrayCopy.length; i++) {
-      arrayCopy[i].id = i;
+      arrayCopy[index] = formData;
+
+      submitEducation(arrayCopy);
+      setEditMode(false);
+    } else {
+      let arrayCopy = [...eduCopy];
+      arrayCopy.push(formData);
+
+      for (let i = 0; i < arrayCopy.length; i++) {
+        arrayCopy[i].id = i;
+      }
+
+      submitEducation(arrayCopy);
     }
-
-    submitEducation(arrayCopy);
 
     setFormData({
       id: 0,
@@ -84,10 +96,15 @@ function Education({ eduCopy, submitEducation }) {
           name="eduEndDate"
         />
         <button type="submit" className="doc-btn">
-          Add School
+          {!editMode ? "Add School" : "Submit Changes"}
         </button>
       </form>
-      <DropdownMenu itemArray={eduCopy} type={"edu"} />
+      <DropdownMenu
+        itemArray={eduCopy}
+        setItemInfo={setFormData}
+        editMode={setEditMode}
+        type={"edu"}
+      />
     </div>
   );
 }

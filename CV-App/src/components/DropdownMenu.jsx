@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/dropdown.css";
 
-const DropdownMenu = ({ itemArray, type }) => {
+const DropdownMenu = ({ itemArray, setItemInfo, type, editMode }) => {
   let nameInfo;
 
   if (type === "edu") {
@@ -9,6 +9,13 @@ const DropdownMenu = ({ itemArray, type }) => {
   } else if (type === "exp") {
     nameInfo = "companyName";
   }
+
+  const chooseEditItem = (item) => {
+    console.log(item);
+    setItemInfo(item);
+    editMode(true);
+    setIsOpen(false);
+  };
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,7 +41,9 @@ const DropdownMenu = ({ itemArray, type }) => {
         <ul>
           {itemArray.map((item) => (
             <li key={item.id}>
-              <button>{item[nameInfo]}</button>
+              <button onClick={() => chooseEditItem(item)}>
+                {item[nameInfo]}
+              </button>
             </li>
           ))}
         </ul>
