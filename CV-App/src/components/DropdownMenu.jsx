@@ -1,7 +1,15 @@
 import { useState } from "react";
 import "../styles/dropdown.css";
 
-const DropdownMenu = ({ itemArray }) => {
+const DropdownMenu = ({ itemArray, type }) => {
+  let nameInfo;
+
+  if (type === "edu") {
+    nameInfo = "schoolName";
+  } else if (type === "exp") {
+    nameInfo = "companyName";
+  }
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -26,7 +34,7 @@ const DropdownMenu = ({ itemArray }) => {
         <ul>
           {itemArray.map((item) => (
             <li key={item.id}>
-              <a href={item.href}>{item.label}</a>
+              <button>{item[nameInfo]}</button>
             </li>
           ))}
         </ul>

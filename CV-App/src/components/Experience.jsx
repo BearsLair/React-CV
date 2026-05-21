@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import DropdownMenu from "./DropdownMenu";
+import DropdownMenu from "./DropdownMenu";
 
 function Experience({ expCopy, submitExperience }) {
   const [formData, setFormData] = useState({
@@ -45,7 +45,7 @@ function Experience({ expCopy, submitExperience }) {
     <div className="experience-div">
       <h1 className="experience-title">Experience</h1>
       <form onSubmit={submitFormData}>
-        <p className="item-label" htmlFor="company-name">
+        <p className="item-label" htmlFor="companyName">
           Company Name:
         </p>
         <input
@@ -93,8 +93,8 @@ function Experience({ expCopy, submitExperience }) {
           name="expEndDate"
         />
         <button type="submit">Add Experience</button>
-        {/* <DropdownMenu /> */}
       </form>
+      <DropdownMenu itemArray={expCopy} type={"exp"} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import DropdownMenu from "./DropdownMenu";
+import DropdownMenu from "./DropdownMenu";
 
 function Education({ eduCopy, submitEducation }) {
   const [formData, setFormData] = useState({
@@ -18,7 +18,6 @@ function Education({ eduCopy, submitEducation }) {
     }));
   };
 
-  // TODO: Generate keys based on index position
   const submitFormData = (e) => {
     e.preventDefault();
 
@@ -44,7 +43,7 @@ function Education({ eduCopy, submitEducation }) {
     <div className="education-div">
       <h1>Education</h1>
       <form onSubmit={submitFormData}>
-        <p className="item-label" htmlFor="schoolName">
+        <p className="item-label" htmlFor="name">
           School Name
         </p>
         <input
@@ -87,8 +86,8 @@ function Education({ eduCopy, submitEducation }) {
         <button type="submit" className="doc-btn">
           Add School
         </button>
-        {/* <DropdownMenu /> */}
       </form>
+      <DropdownMenu itemArray={eduCopy} type={"edu"} />
     </div>
   );
 }

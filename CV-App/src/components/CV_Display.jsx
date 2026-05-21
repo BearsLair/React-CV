@@ -35,6 +35,7 @@ function CV_Display({ generalData, eduData, expData }) {
             <div className="exp-info">
               <p>{item.companyName}</p>
               <p>Position: {item.posTitle}</p>
+              <p>Main Reponsibilities: {item.responsibilities}</p>
               <p>
                 Start: {item.expStartDate} End: {item.expEndDate}
               </p>
