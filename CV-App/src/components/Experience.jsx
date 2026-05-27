@@ -21,6 +21,22 @@ function Experience({ expCopy, submitExperience }) {
     }));
   };
 
+  const handleDeletion = (item) => {
+    const arrayCopy = [...expCopy];
+    const index = item.id;
+    arrayCopy.splice(index, 1);
+
+    if (arrayCopy.length > 0) {
+      for (let i = 0; i < arrayCopy.length; i++) {
+        arrayCopy[i].id = i;
+      }
+
+      submitExperience(arrayCopy);
+    } else {
+      submitExperience([]);
+    }
+  };
+
   const submitFormData = (e) => {
     e.preventDefault();
 
@@ -104,7 +120,7 @@ function Experience({ expCopy, submitExperience }) {
           name="expEndDate"
         />
         <button type="submit">
-          {!editMode ? "Add School" : "Submit Changes"}
+          {!editMode ? "Add Experience" : "Submit Changes"}
         </button>
       </form>
       <DropdownMenu
@@ -112,6 +128,13 @@ function Experience({ expCopy, submitExperience }) {
         setItemInfo={setFormData}
         editMode={setEditMode}
         type={"exp"}
+      />
+      <DropdownMenu
+        itemArray={expCopy}
+        setItemInfo={setFormData}
+        editMode={setEditMode}
+        type={"deleteExp"}
+        deleteItem={handleDeletion}
       />
     </div>
   );

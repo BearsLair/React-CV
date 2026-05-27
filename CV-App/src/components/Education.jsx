@@ -20,6 +20,22 @@ function Education({ eduCopy, submitEducation }) {
     }));
   };
 
+  const handleDeletion = (item) => {
+    const arrayCopy = [...eduCopy];
+    const index = item.id;
+    arrayCopy.splice(index, 1);
+
+    if (arrayCopy.length > 0) {
+      for (let i = 0; i < arrayCopy.length; i++) {
+        arrayCopy[i].id = i;
+      }
+
+      submitEducation(arrayCopy);
+    } else {
+      submitEducation([]);
+    }
+  };
+
   const submitFormData = (e) => {
     e.preventDefault();
 
@@ -104,6 +120,14 @@ function Education({ eduCopy, submitEducation }) {
         setItemInfo={setFormData}
         editMode={setEditMode}
         type={"edu"}
+        deleteItem={handleDeletion}
+      />
+      <DropdownMenu
+        itemArray={eduCopy}
+        setItemInfo={setFormData}
+        editMode={setEditMode}
+        type={"deleteEdu"}
+        deleteItem={handleDeletion}
       />
     </div>
   );

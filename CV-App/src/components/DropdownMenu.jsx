@@ -1,20 +1,30 @@
 import { useState } from "react";
 import "../styles/dropdown.css";
 
-const DropdownMenu = ({ itemArray, setItemInfo, type, editMode }) => {
+const DropdownMenu = ({
+  itemArray,
+  setItemInfo,
+  type,
+  editMode,
+  deleteItem,
+}) => {
   let nameInfo;
 
-  if (type === "edu") {
+  if (type === "edu" || type === "deleteEdu") {
     nameInfo = "schoolName";
-  } else if (type === "exp") {
+  } else if (type === "exp" || type === "deleteExp") {
     nameInfo = "companyName";
   }
 
   const chooseEditItem = (item) => {
-    console.log(item);
-    setItemInfo(item);
-    editMode(true);
-    setIsOpen(false);
+    if (type === "edu" || type === "exp") {
+      setItemInfo(item);
+      editMode(true);
+      setIsOpen(false);
+    } else if (type === "deleteEdu" || type === "deleteExp") {
+      deleteItem(item);
+      setIsOpen(false);
+    }
   };
 
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +42,9 @@ const DropdownMenu = ({ itemArray, setItemInfo, type, editMode }) => {
         aria-haspopup="true"
         aria-expanded={isOpen}
       >
-        <span className="btn-text">Edit</span>
+        <span className="btn-text">
+          {type === "deleteEdu" || type === "deleteExp" ? "Delete" : "Edit"}
+        </span>
         <span className="arrow-icon">{isOpen ? "▼" : "▲"}</span>
       </button>
 
