@@ -98,6 +98,7 @@ function Experience({ expCopy, submitExperience }) {
           id="main-resp"
           name="responsibilities"
           onChange={handleChange}
+          value={formData.responsibilities}
         />
         <p className="item-label" htmlFor="exp-start-date">
           Start Date:
