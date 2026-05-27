@@ -32,7 +32,7 @@ function CV_Display({ generalData, eduData, expData }) {
       {expData.length > 0 ? (
         expData.map((item) => {
           return (
-            <div className="exp-info">
+            <div className="exp-info" key={item.id}>
               <p>{item.companyName}</p>
               <p>Position: {item.posTitle}</p>
               <p>Main Reponsibilities: {item.responsibilities}</p>
