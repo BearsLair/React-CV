@@ -6,8 +6,7 @@ function Education({ eduCopy, submitEducation }) {
     id: 0,
     schoolName: "",
     degree: "",
-    eduStartDate: "",
-    eduEndDate: "",
+    gradDate: "",
   });
 
   const [editMode, setEditMode] = useState(false);
@@ -92,24 +91,14 @@ function Education({ eduCopy, submitEducation }) {
           name="degree"
         />
         <p className="item-label" htmlFor="eduStartDate">
-          Start Date
+          Graduation Date
         </p>
         <input
           className="date-input"
           onChange={handleChange}
-          value={formData.eduStartDate}
+          value={formData.gradDate}
           type="date"
-          name="eduStartDate"
-        />
-        <p className="item-label" htmlFor="eduEndDate">
-          End Date
-        </p>
-        <input
-          className="date-input"
-          onChange={handleChange}
-          value={formData.eduEndDate}
-          type="date"
-          name="eduEndDate"
+          name="gradDate"
         />
         <button type="submit" className="doc-btn">
           {!editMode ? "Add School" : "Submit Changes"}
