@@ -26,9 +26,9 @@ function General({ submitGeneral }) {
     <div className="general-div">
       <h1>General</h1>
       <form className="first-last-name-div" onSubmit={submitFormData}>
-        <p className="item-label" htmlFor="first-name">
+        <label className="item-label" htmlFor="first-name">
           First Name
-        </p>
+        </label>
         <input
           type="text"
           className="first-name-input"
@@ -37,9 +37,9 @@ function General({ submitGeneral }) {
           value={formData.firstName}
           placeholder="First Name"
         ></input>
-        <p className="item-label" htmlFor="last-name">
+        <label className="item-label" htmlFor="last-name">
           Last Name
-        </p>
+        </label>
         <input
           type="text"
           className="last-name-input"
@@ -48,9 +48,9 @@ function General({ submitGeneral }) {
           onChange={handleChange}
           placeholder="Last Name"
         ></input>
-        <p className="item-label" htmlFor="email">
+        <label className="item-label" htmlFor="email">
           Email
-        </p>
+        </label>
         <input
           type="email"
           className="email-input"
@@ -59,9 +59,9 @@ function General({ submitGeneral }) {
           value={formData.email}
           placeholder="Email"
         ></input>
-        <p className="item-label" htmlFor="phone">
+        <label className="item-label" htmlFor="phone">
           Phone
-        </p>
+        </label>
         <input
           type="tel"
           className="phone-input"

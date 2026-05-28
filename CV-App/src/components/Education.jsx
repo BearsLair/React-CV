@@ -70,9 +70,9 @@ function Education({ eduCopy, submitEducation }) {
     <div className="education-div">
       <h1>Education</h1>
       <form onSubmit={submitFormData}>
-        <p className="item-label" htmlFor="name">
+        <label className="item-label" htmlFor="name">
           School Name
-        </p>
+        </label>
         <input
           type="text"
           onChange={handleChange}
@@ -80,9 +80,9 @@ function Education({ eduCopy, submitEducation }) {
           placeholder="School Name"
           name="schoolName"
         />
-        <p className="item-label" htmlFor="degree">
+        <label className="item-label" htmlFor="degree">
           Degree
-        </p>
+        </label>
         <input
           type="text"
           onChange={handleChange}
@@ -90,9 +90,9 @@ function Education({ eduCopy, submitEducation }) {
           placeholder="Degree"
           name="degree"
         />
-        <p className="item-label" htmlFor="eduStartDate">
+        <label className="item-label" htmlFor="gradDate">
           Graduation Date
-        </p>
+        </label>
         <input
           className="date-input"
           onChange={handleChange}

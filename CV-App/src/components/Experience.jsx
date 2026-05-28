@@ -72,9 +72,9 @@ function Experience({ expCopy, submitExperience }) {
     <div className="experience-div">
       <h1 className="experience-title">Experience</h1>
       <form onSubmit={submitFormData}>
-        <p className="item-label" htmlFor="companyName">
+        <label className="item-label" htmlFor="companyName">
           Company Name:
-        </p>
+        </label>
         <input
           className="company-name-input"
           onChange={handleChange}
@@ -82,9 +82,9 @@ function Experience({ expCopy, submitExperience }) {
           type="text"
           name="companyName"
         />
-        <p className="item-label" htmlFor="position-title">
+        <label className="item-label" htmlFor="position-title">
           Position Title:
-        </p>
+        </label>
         <input
           className="pos-title-input"
           onChange={handleChange}
@@ -92,7 +92,7 @@ function Experience({ expCopy, submitExperience }) {
           type="text"
           name="posTitle"
         />
-        <p className="item-label">Main Responsiblities</p>
+        <label className="item-label">Main Responsiblities</label>
         <textarea
           className="main-resp-input"
           id="main-resp"
@@ -100,9 +100,9 @@ function Experience({ expCopy, submitExperience }) {
           onChange={handleChange}
           value={formData.responsibilities}
         />
-        <p className="item-label" htmlFor="exp-start-date">
+        <label className="item-label" htmlFor="exp-start-date">
           Start Date:
-        </p>
+        </label>
         <input
           className="date-input"
           onChange={handleChange}
@@ -110,9 +110,9 @@ function Experience({ expCopy, submitExperience }) {
           type="date"
           name="expStartDate"
         />
-        <p className="item-label" htmlFor="exp-end-date">
+        <label className="item-label" htmlFor="exp-end-date">
           End Date:
-        </p>
+        </label>
         <input
           className="date-input"
           onChange={handleChange}
