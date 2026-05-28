@@ -12,12 +12,13 @@ function CV_Display({ generalData, eduData, expData }) {
       ) : (
         <p>General Information will be displayed here</p>
       )}
+      <hr />
       <h2>Education</h2>
       {eduData.length > 0 ? (
         eduData.map((item) => {
           return (
             <div className="edu-info" key={item.id}>
-              <p>School: {item.schoolName}</p>
+              <p>{item.schoolName}</p>
               <p>Degree: {item.degree}</p>
               <p>Graduation Date: {item.gradDate}</p>
             </div>
@@ -26,12 +27,13 @@ function CV_Display({ generalData, eduData, expData }) {
       ) : (
         <p>Education will be displayed here</p>
       )}
+      <hr />
       <h2>Experience</h2>
       {expData.length > 0 ? (
         expData.map((item) => {
           return (
             <div className="exp-info" key={item.id}>
-              <p>Company: {item.companyName}</p>
+              <p>{item.companyName}</p>
               <p>Position: {item.posTitle}</p>
               <p>Main Reponsibilities: {item.responsibilities}</p>
               <p>

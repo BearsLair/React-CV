@@ -53,7 +53,10 @@ const DropdownMenu = ({
         <ul>
           {itemArray.map((item) => (
             <li key={item.id}>
-              <button onClick={() => chooseEditItem(item)}>
+              <button
+                className="selection-item"
+                onClick={() => chooseEditItem(item)}
+              >
                 {item[nameInfo]}
               </button>
             </li>

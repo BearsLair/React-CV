@@ -11,21 +11,22 @@ function App() {
   const [expInfo, setExpInfo] = useState([]);
 
   return (
-    <>
-      <General submitGeneral={setGeneralInfo} />
-      <hr />
-      <Education eduCopy={eduInfo} submitEducation={setEduInfo} />
-      <hr />
-      <Experience expCopy={expInfo} submitExperience={setExpInfo} />
-      <hr />
-      <hr />
-      <hr />
-      <CV_Display
-        generalData={generalInfo}
-        eduData={eduInfo}
-        expData={expInfo}
-      />
-    </>
+    <div className="app">
+      <div className="user-inputs-div">
+        <General submitGeneral={setGeneralInfo} />
+        <hr />
+        <Education eduCopy={eduInfo} submitEducation={setEduInfo} />
+        <hr />
+        <Experience expCopy={expInfo} submitExperience={setExpInfo} />
+      </div>
+      <div className="display-CV-div">
+        <CV_Display
+          generalData={generalInfo}
+          eduData={eduInfo}
+          expData={expInfo}
+        />
+      </div>
+    </div>
   );
 }
 

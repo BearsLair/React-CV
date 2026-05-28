@@ -67,57 +67,69 @@ function Education({ eduCopy, submitEducation }) {
   };
 
   return (
-    <div className="education-div">
+    <div className="form-div">
       <h1>Education</h1>
       <form onSubmit={submitFormData}>
-        <label className="item-label" htmlFor="name">
-          School Name
-        </label>
-        <input
-          type="text"
-          onChange={handleChange}
-          value={formData.schoolName}
-          placeholder="School Name"
-          name="schoolName"
-        />
-        <label className="item-label" htmlFor="degree">
-          Degree
-        </label>
-        <input
-          type="text"
-          onChange={handleChange}
-          value={formData.degree}
-          placeholder="Degree"
-          name="degree"
-        />
-        <label className="item-label" htmlFor="gradDate">
-          Graduation Date
-        </label>
-        <input
-          className="date-input"
-          onChange={handleChange}
-          value={formData.gradDate}
-          type="date"
-          name="gradDate"
-        />
-        <button type="submit" className="doc-btn">
-          {!editMode ? "Add School" : "Submit Changes"}
-        </button>
+        <div className="input-div">
+          <label className="item-label" htmlFor="name">
+            School Name:
+          </label>
+          <input
+            type="text"
+            className="text-input"
+            onChange={handleChange}
+            value={formData.schoolName}
+            placeholder="School Name"
+            name="schoolName"
+          />
+        </div>
+        <div className="input-div">
+          <label className="item-label" htmlFor="degree">
+            Degree:
+          </label>
+          <input
+            type="text"
+            className="text-input"
+            onChange={handleChange}
+            value={formData.degree}
+            placeholder="Degree"
+            name="degree"
+          />
+        </div>
+        <div className="input-div">
+          <label className="item-label" htmlFor="gradDate">
+            Graduation Date:
+          </label>
+          <input
+            className="date-input"
+            onChange={handleChange}
+            value={formData.gradDate}
+            type="date"
+            name="gradDate"
+          />
+        </div>
+        <div className="btn-div">
+          <button type="submit" className="doc-btn">
+            {!editMode ? "Add School" : "Submit Changes"}
+          </button>
+        </div>
       </form>
-      <DropdownMenu
-        itemArray={eduCopy}
-        setItemInfo={setFormData}
-        editMode={setEditMode}
-        type={"edu"}
-        deleteItem={handleDeletion}
-      />
-      <DropdownMenu
-        itemArray={eduCopy}
-        setItemInfo={setFormData}
-        editMode={setEditMode}
-        type={"deleteEdu"}
-        deleteItem={handleDeletion}
-      />
+      <div className="edit-delete">
+        <DropdownMenu
+          itemArray={eduCopy}
+          setItemInfo={setFormData}
+          editMode={setEditMode}
+          type={"edu"}
+          deleteItem={handleDeletion}
+        />
+        <DropdownMenu
+          itemArray={eduCopy}
+          setItemInfo={setFormData}
+          editMode={setEditMode}
+          type={"deleteEdu"}
+          deleteItem={handleDeletion}
+        />
+      </div>
     </div>
   );
 }

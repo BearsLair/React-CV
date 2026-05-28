@@ -69,74 +69,88 @@ function Experience({ expCopy, submitExperience }) {
   };
 
   return (
-    <div className="experience-div">
-      <h1 className="experience-title">Experience</h1>
+    <div className="form-div">
+      <h1 className="div-title">Experience</h1>
       <form onSubmit={submitFormData}>
-        <label className="item-label" htmlFor="companyName">
-          Company Name:
-        </label>
-        <input
-          className="company-name-input"
-          onChange={handleChange}
-          value={formData.companyName}
-          type="text"
-          name="companyName"
-        />
-        <label className="item-label" htmlFor="position-title">
-          Position Title:
-        </label>
-        <input
-          className="pos-title-input"
-          onChange={handleChange}
-          value={formData.posTitle}
-          type="text"
-          name="posTitle"
-        />
-        <label className="item-label">Main Responsiblities</label>
-        <textarea
-          className="main-resp-input"
-          id="main-resp"
-          name="responsibilities"
-          onChange={handleChange}
-          value={formData.responsibilities}
-        />
-        <label className="item-label" htmlFor="exp-start-date">
-          Start Date:
-        </label>
-        <input
-          className="date-input"
-          onChange={handleChange}
-          value={formData.expStartDate}
-          type="date"
-          name="expStartDate"
-        />
-        <label className="item-label" htmlFor="exp-end-date">
-          End Date:
-        </label>
-        <input
-          className="date-input"
-          onChange={handleChange}
-          value={formData.expEndDate}
-          type="date"
-          name="expEndDate"
-        />
-        <button type="submit">
-          {!editMode ? "Add Experience" : "Submit Changes"}
-        </button>
+        <div className="input-div">
+          <label className="item-label" htmlFor="companyName">
+            Company Name:
+          </label>
+          <input
+            className="text-input"
+            onChange={handleChange}
+            value={formData.companyName}
+            type="text"
+            name="companyName"
+          />
+        </div>
+        <div className="input-div">
+          <label className="item-label" htmlFor="position-title">
+            Position Title:
+          </label>
+          <input
+            className="text-input"
+            onChange={handleChange}
+            value={formData.posTitle}
+            type="text"
+            name="posTitle"
+          />
+        </div>
+        <div className="input-div">
+          <label className="item-label">Main Responsiblities:</label>
+          <textarea
+            className="text-area-input"
+            id="main-resp"
+            name="responsibilities"
+            onChange={handleChange}
+            value={formData.responsibilities}
+          />
+        </div>
+        <div className="input-div">
+          <label className="item-label" htmlFor="exp-start-date">
+            Start Date:
+          </label>
+          <input
+            className="date-input"
+            onChange={handleChange}
+            value={formData.expStartDate}
+            type="date"
+            name="expStartDate"
+          />
+        </div>
+        <div className="input-div">
+          <label className="item-label" htmlFor="exp-end-date">
+            End Date:
+          </label>
+          <input
+            className="date-input"
+            onChange={handleChange}
+            value={formData.expEndDate}
+            type="date"
+            name="expEndDate"
+          />
+        </div>
+        <div className="btn-div">
+          <button type="submit" className="doc-btn">
+            {!editMode ? "Add Experience" : "Submit Changes"}
+          </button>
+        </div>
       </form>
-      <DropdownMenu
-        itemArray={expCopy}
-        setItemInfo={setFormData}
-        editMode={setEditMode}
-        type={"exp"}
-      />
-      <DropdownMenu
-        itemArray={expCopy}
-        setItemInfo={setFormData}
-        editMode={setEditMode}
-        type={"deleteExp"}
-        deleteItem={handleDeletion}
-      />
+      <div className="edit-delete">
+        <DropdownMenu
+          itemArray={expCopy}
+          setItemInfo={setFormData}
+          editMode={setEditMode}
+          type={"exp"}
+        />
+        <DropdownMenu
+          itemArray={expCopy}
+          setItemInfo={setFormData}
+          editMode={setEditMode}
+          type={"deleteExp"}
+          deleteItem={handleDeletion}
+        />
+      </div>
     </div>
   );
 }
