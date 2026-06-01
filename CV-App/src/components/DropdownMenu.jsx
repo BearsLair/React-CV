@@ -45,7 +45,6 @@ const DropdownMenu = ({
         <span className="btn-text">
           {type === "deleteEdu" || type === "deleteExp" ? "Delete" : "Edit"}
         </span>
-        <span className="arrow-icon">{isOpen ? "▼" : "▲"}</span>
       </button>
 
       {/* The Dropdown Content */}
