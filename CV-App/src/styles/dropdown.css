@@ -30,7 +30,7 @@
 }
 
 .dropdown-btn:hover {
-  background-color: #f9f9f9;
+  background-color: #c9c6c6;
   transform: translateY(-1px);
 }
 
@@ -80,11 +80,7 @@
   list-style: none;
   padding: 10px 0;
   margin: 0;
-  width: 100%;
-}
-
-.dropdown-content ul li {
-  border-bottom: 1px solid #f0f0f0;
+  width: 300%;
 }
 
 .dropdown-content ul li:last-child {
@@ -96,20 +92,23 @@
   padding: 12px 20px;
   text-decoration: none;
   color: #555;
-  font-size: 15px;
+  font-size: 1rem;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
 }
 
 .dropdown-content ul li a:hover {
-  background-color: #f0f7ff;
+  background-color: #bfc1c3;
   color: #007bff;
   padding-left: 25px; /* Slight slide effect */
 }
 
 .selection-item {
   border: 0;
-  background-color: #f0f7ff00;
   font-size: 1.2rem;
+}
+
+.selection-item:hover {
+  background-color: #b7b5b5;
 }
