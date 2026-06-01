@@ -3,6 +3,7 @@ import General from "./components/General.jsx";
 import Education from "./components/Education.jsx";
 import Experience from "./components/Experience.jsx";
 import CV_Display from "./components/CV_Display.jsx";
+import DeletionModal from "./components/DeletionModal.jsx";
 import "./styles/App.css";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           expData={expInfo}
         />
       </div>
+      <DeletionModal />
     </div>
   );
 }
