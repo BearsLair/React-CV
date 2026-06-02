@@ -18,6 +18,8 @@ h1 {
   margin-top: 10px;
   margin-left: 10px;
   border-right: 3px solid gray;
+  height: 100vh;
+  padding-right: 5px;
 }
 
 .display-CV-div {
@@ -114,4 +116,23 @@ h2 {
 
 .deletion-text {
   text-align: center;
+}
+
+.nav-div {
+  margin-bottom: 0;
+}
+
+.nav-btn {
+  font-size: 1.2rem;
+  padding: 3px;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 0;
+}
+
+.nav-btn:hover {
+  background-color: rgb(195, 196, 198);
 }
