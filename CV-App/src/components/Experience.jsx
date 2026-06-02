@@ -1,7 +1,13 @@
 import { useState } from "react";
 import DropdownMenu from "./DropdownMenu";
 
-function Experience({ expCopy, submitExperience }) {
+function Experience({
+  expCopy,
+  submitExperience,
+  setShowDeleteModal,
+  setDeletionItem,
+  setDelType,
+}) {
   const [formData, setFormData] = useState({
     id: 0,
     companyName: "",
@@ -19,22 +25,6 @@ function Experience({ expCopy, submitExperience }) {
       ...prevData,
       [name]: value,
     }));
-  };
-
-  const handleDeletion = (item) => {
-    const arrayCopy = [...expCopy];
-    const index = item.id;
-    arrayCopy.splice(index, 1);
-
-    if (arrayCopy.length > 0) {
-      for (let i = 0; i < arrayCopy.length; i++) {
-        arrayCopy[i].id = i;
-      }
-
-      submitExperience(arrayCopy);
-    } else {
-      submitExperience([]);
-    }
   };
 
   const submitFormData = (e) => {
@@ -148,7 +138,9 @@ function Experience({ expCopy, submitExperience }) {
           setItemInfo={setFormData}
           editMode={setEditMode}
           type={"deleteExp"}
-          deleteItem={handleDeletion}
+          setDeletionItem={setDeletionItem}
+          setShowDeleteModal={setShowDeleteModal}
+          setDelType={setDelType}
         />
       </div>
     </div>

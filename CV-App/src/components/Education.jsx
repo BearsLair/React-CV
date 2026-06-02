@@ -1,7 +1,14 @@
 import { useState } from "react";
 import DropdownMenu from "./DropdownMenu";
 
-function Education({ eduCopy, submitEducation }) {
+function Education({
+  eduCopy,
+  submitEducation,
+  handleDeletion,
+  setDeletionItem,
+  setShowDeleteModal,
+  setDelType,
+}) {
   const [formData, setFormData] = useState({
     id: 0,
     schoolName: "",
@@ -17,22 +24,6 @@ function Education({ eduCopy, submitEducation }) {
       ...prevData,
       [name]: value,
     }));
-  };
-
-  const handleDeletion = (item) => {
-    const arrayCopy = [...eduCopy];
-    const index = item.id;
-    arrayCopy.splice(index, 1);
-
-    if (arrayCopy.length > 0) {
-      for (let i = 0; i < arrayCopy.length; i++) {
-        arrayCopy[i].id = i;
-      }
-
-      submitEducation(arrayCopy);
-    } else {
-      submitEducation([]);
-    }
   };
 
   const submitFormData = (e) => {
@@ -127,7 +118,9 @@ function Education({ eduCopy, submitEducation }) {
           setItemInfo={setFormData}
           editMode={setEditMode}
           type={"deleteEdu"}
-          deleteItem={handleDeletion}
+          setDeletionItem={setDeletionItem}
+          setShowDeleteModal={setShowDeleteModal}
+          setDelType={setDelType}
         />
       </div>
     </div>

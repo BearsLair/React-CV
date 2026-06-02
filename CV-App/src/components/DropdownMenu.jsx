@@ -6,14 +6,19 @@ const DropdownMenu = ({
   setItemInfo,
   type,
   editMode,
-  deleteItem,
+  setDeletionItem,
+  setShowDeleteModal,
+  setDelType,
 }) => {
   let nameInfo;
+  let delType;
 
   if (type === "edu" || type === "deleteEdu") {
     nameInfo = "schoolName";
+    delType = "edu";
   } else if (type === "exp" || type === "deleteExp") {
     nameInfo = "companyName";
+    delType = "exp";
   }
 
   const chooseEditItem = (item) => {
@@ -22,8 +27,10 @@ const DropdownMenu = ({
       editMode(true);
       setIsOpen(false);
     } else if (type === "deleteEdu" || type === "deleteExp") {
-      deleteItem(item);
+      setDeletionItem(item);
+      setShowDeleteModal(true);
       setIsOpen(false);
+      setDelType(delType);
     }
   };
 
