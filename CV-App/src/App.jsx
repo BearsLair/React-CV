@@ -95,27 +95,9 @@ function App() {
           <button className="nav-btn" onClick={() => setCurrentPage("exp")}>
             Experience
           </button>
+          <hr />
         </div>
         {renderCurrentPage()}
-        {/* <General submitGeneral={setGeneralInfo} />
-        <hr />
-        <Education
-          eduCopy={eduInfo}
-          submitEducation={setEduInfo}
-          showModal={setShowDeleteModal}
-          setDeletionItem={setDeletionItem}
-          setShowDeleteModal={setShowDeleteModal}
-          setDelType={setDelType}
-        />
-        <hr />
-        <Experience
-          expCopy={expInfo}
-          submitExperience={setExpInfo}
-          showModal={setShowDeleteModal}
-          setDeletionItem={setDeletionItem}
-          setShowDeleteModal={setShowDeleteModal}
-          setDelType={setDelType}
-        /> */}
       </div>
       <div className="display-CV-div">
         <CV_Display
