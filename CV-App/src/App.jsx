@@ -14,7 +14,7 @@ function App() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [delType, setDelType] = useState("");
 
-  const handleDeletion = (type, item) => {
+  const handleDeletion = (delType, item) => {
     if (delType === "edu") {
       const arrayCopy = [...eduInfo];
       const index = item.id;
@@ -26,8 +26,10 @@ function App() {
         }
 
         setEduInfo(arrayCopy);
+        setShowDeleteModal(false);
       } else {
         setEduInfo([]);
+        setShowDeleteModal(false);
       }
     } else if (delType === "exp") {
       const arrayCopy = [...expInfo];
@@ -40,8 +42,10 @@ function App() {
         }
 
         setExpInfo(arrayCopy);
+        setShowDeleteModal(false);
       } else {
         setExpInfo([]);
+        setShowDeleteModal(false);
       }
     }
   };
@@ -79,6 +83,7 @@ function App() {
       <DeletionModal
         deletionItem={deletionItem}
         showDeleteModal={showDeleteModal}
+        setShowDeleteModal={setShowDeleteModal}
         delType={delType}
         handleDeletion={handleDeletion}
       />

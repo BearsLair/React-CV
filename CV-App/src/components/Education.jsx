@@ -52,8 +52,7 @@ function Education({
       id: 0,
       schoolName: "",
       degree: "",
-      eduStartDate: "",
-      eduEndDate: "",
+      gradDate: "",
     });
   };
 
