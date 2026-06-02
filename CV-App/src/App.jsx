@@ -7,6 +7,7 @@ import DeletionModal from "./components/DeletionModal.jsx";
 import "./styles/App.css";
 
 function App() {
+  const [currentPage, setCurrentPage] = useState("general");
   const [generalInfo, setGeneralInfo] = useState({});
   const [eduInfo, setEduInfo] = useState([]);
   const [expInfo, setExpInfo] = useState([]);
@@ -50,10 +51,53 @@ function App() {
     }
   };
 
+  const renderCurrentPage = () => {
+    // Switch statement for changing tabs (Note-to-self: Switch good for components with different props.).
+    // Another note-to-self: Switch statements must RETURN.
+    switch (currentPage) {
+      case "general":
+        return <General submitGeneral={setGeneralInfo} />;
+      case "edu":
+        return (
+          <Education
+            eduCopy={eduInfo}
+            submitEducation={setEduInfo}
+            showModal={setShowDeleteModal}
+            setDeletionItem={setDeletionItem}
+            setShowDeleteModal={setShowDeleteModal}
+            setDelType={setDelType}
+          />
+        );
+      case "exp":
+        return (
+          <Experience
+            expCopy={expInfo}
+            submitExperience={setExpInfo}
+            showModal={setShowDeleteModal}
+            setDeletionItem={setDeletionItem}
+            setShowDeleteModal={setShowDeleteModal}
+            setDelType={setDelType}
+          />
+        );
+    }
+  };
+
   return (
     <div className="app">
       <div className="user-inputs-div">
-        <General submitGeneral={setGeneralInfo} />
+        <div className="nav-div">
+          <button className="nav-btn" onClick={() => setCurrentPage("general")}>
+            General
+          </button>
+          <button className="nav-btn" onClick={() => setCurrentPage("edu")}>
+            Education
+          </button>
+          <button className="nav-btn" onClick={() => setCurrentPage("exp")}>
+            Experience
+          </button>
+        </div>
+        {renderCurrentPage()}
+        {/* <General submitGeneral={setGeneralInfo} />
         <hr />
         <Education
           eduCopy={eduInfo}
@@ -71,7 +115,7 @@ function App() {
           setDeletionItem={setDeletionItem}
           setShowDeleteModal={setShowDeleteModal}
           setDelType={setDelType}
-        />
+        /> */}
       </div>
       <div className="display-CV-div">
         <CV_Display
